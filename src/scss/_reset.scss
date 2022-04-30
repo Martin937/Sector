@@ -1,0 +1,70 @@
+/***
+    Новый сброс CSS - версия 1.4.7 (последнее обновление 27.01.2022). Страница на гитхабе: https://github.com/elad2412/the-new-css-reset
+***/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+/* Предпочтительное значение box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Применение курсора указателя для тегов привязки */
+a,
+button {
+  cursor: pointer;
+}
+
+/* Удалить стили списка (маркеры/цифры) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+// /* Чтобы изображения не могли выйти за пределы своего контейнера */
+// img {
+//   width: 100%;
+//   height: auto;
+// }
+
+/* убирает пробелы между ячейками в таблицах*/
+table {
+  border-collapse: collapse;
+}
+
+/* вернуть свойство «белое пространство» для элементов textarea в Safari */
+textarea {
+  white-space: revert;
+}
+
+/* минимальный стиль, позволяющий стилизовать элемент счетчика */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* исправить функцию «скрытого» атрибута.
+    дисплей: вернуться; вернуться к элементу вместо атрибута */
+:where([hidden]) {
+  display: none;
+}
+
+/* вернуться к ошибке в браузерах Chromium
+    - исправление для редактируемого атрибута контента будет работать правильно. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* вернуть функцию перетаскивания - существует только в Chromium и Safari */
+:where([draggable='true']) {
+  -webkit-user-drag: element;
+}
