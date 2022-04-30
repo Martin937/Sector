@@ -17,18 +17,22 @@ function App() {
 
 
 
-  useEffect(() => {
-    const newData = data.slice();
-    const results = newData.filter(post => post.title.toLowerCase().includes(searchFilter.toLowerCase()))
-    setSearchResults(results);
-    console.log(searchResults);
-  }, [searchFilter]);
+
 
   useEffect(() => {
     getAllPosts().then((data) => {
-      setData(data);
+      const results = data.filter(post => post.title.toLowerCase().includes(searchFilter.toLowerCase()))
+      setData(results);
     });
-  }, []);
+
+  }, [searchFilter]);
+
+  // useEffect(() => {
+  //   getAllPosts().then((data) => {
+  //     setData(data);
+  //   });
+  // }, []);
+
 
   const sortPosts = (event) => {
     const target = event.currentTarget.id;

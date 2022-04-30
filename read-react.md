@@ -63,13 +63,13 @@
     git config --local core.quotepath off Установка отображения unicode
     git status Посмотреть состояние
     git add -A Добавить все файлы
-    git commit -a -m”message” Создание контрольной точки
+    git commit -a -m ”message” Создание контрольной точки
     git add -A + git commit -a -m”message” Вводить после внесения всех изменений
     git log Посмотреть изменения
 
 12. Создаём репозиторий на GITHUB и связываем его с проектом
-    git remote add origin https://github.com/Martin937//beOnPulse.git Прописываем путь к github
-    git remote set-url origin https://github.com/Martin937/beOnPulse.git Если нужно изменить уже существующий
+    git remote add origin https://github.com/Martin937/Sector.git Прописываем путь к github
+    git remote set-url origin https://github.com/Martin937/Sector.git Если нужно изменить уже существующий
     git push -u origin master Заливка на github
     git pull Обновление всех связей и изменений
     git push Заливка на github
