@@ -3,8 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import getAllPosts from "./api/api";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
+import NextPage2 from "./pages/NextPage2";
+import NextPage3 from "./pages/NextPage3";
+import NextPage4 from "./pages/NextPage4";
+import NextPage5 from "./pages/NextPage5";
 import NoMatch from "./pages/NoMatch";
-import UsersProfile from "./pages/UsersProfile";
 
 
 function App() {
@@ -13,10 +16,9 @@ function App() {
   const [isSortTitle, setIsSortTitle] = useState(false);
   const [isSortBody, setIsSortBody] = useState(false);
   const [searchFilter, setSearchFilter] = useState('')
-  const [searchResults, setSearchResults] = useState([]);
-
-
-
+  // const [searchResults, setSearchResults] = useState([]);
+  // const numberPages = data.length;
+  // console.log(numberPages);
 
 
   useEffect(() => {
@@ -26,13 +28,6 @@ function App() {
     });
 
   }, [searchFilter]);
-
-  // useEffect(() => {
-  //   getAllPosts().then((data) => {
-  //     setData(data);
-  //   });
-  // }, []);
-
 
   const sortPosts = (event) => {
     const target = event.currentTarget.id;
@@ -72,8 +67,13 @@ function App() {
           sortPosts={sortPosts}
           isSortId={isSortId}
           isSortTitle={isSortTitle}
-          isSortBody={isSortBody} />} />
-        <Route path="usersProfile" element={<UsersProfile />} />
+          isSortBody={isSortBody} />} >
+
+        </Route>
+        <Route path="2" element={<NextPage2 />} />
+        <Route path="3" element={<NextPage3 />} />
+        <Route path="4" element={<NextPage4 />} />
+        <Route path="5" element={<NextPage5 />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>

@@ -1,7 +1,6 @@
 import arrow from '../../icons/arrow.svg';
 
 const TableHead = ({ sortPosts, isSortId, isSortTitle, isSortBody }) => {
-  // const imgStyle = { transform: 'rotate(180deg)' };
   const imgStyleId = isSortId ? { transform: 'rotate(180deg' } : null;
   const imgStyleTitle = isSortTitle ? { transform: 'rotate(180deg' } : null;
   const imgStyleBody = isSortBody ? { transform: 'rotate(180deg' } : null;

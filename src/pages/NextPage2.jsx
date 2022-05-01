@@ -1,7 +1,7 @@
 import Loader from '../components/Loader';
 import TableRow from '../components/table/TableRow';
 
-function Home({ data = [] }) {
+function nextPage2({ data = [] }) {
   const tableRow = data.map((row) => (
     <TableRow
       key={row.id}
@@ -11,6 +11,11 @@ function Home({ data = [] }) {
       // number={data.indexOf(row) + 1}
     />
   ));
-  return <div className='table'>{!data.length ? <Loader /> : tableRow}</div>;
+  return (
+    <div className='table'>
+      <h2>Page-2</h2>
+      {!data.length ? <Loader /> : tableRow}
+    </div>
+  );
 }
-export default Home;
+export default nextPage2;
