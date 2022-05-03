@@ -11,6 +11,7 @@ function Layout({
   isSortId,
   isSortTitle,
   isSortBody,
+  nextData,
 }) {
   return (
     <div className='container'>
@@ -26,7 +27,7 @@ function Layout({
           isSortBody={isSortBody}
         />
         <Outlet />
-        <TableFooter />
+        <TableFooter nextData={nextData} />
       </main>
     </div>
   );

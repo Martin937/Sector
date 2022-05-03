@@ -11,11 +11,6 @@ function nextPage2({ data = [] }) {
       // number={data.indexOf(row) + 1}
     />
   ));
-  return (
-    <div className='table'>
-      <h2>Page-4</h2>
-      {!data.length ? <Loader /> : tableRow}
-    </div>
-  );
+  return <div className='table'>{!data.length ? <Loader /> : tableRow}</div>;
 }
 export default nextPage2;

@@ -16,18 +16,27 @@ function App() {
   const [isSortTitle, setIsSortTitle] = useState(false);
   const [isSortBody, setIsSortBody] = useState(false);
   const [searchFilter, setSearchFilter] = useState('')
-  // const [searchResults, setSearchResults] = useState([]);
-  // const numberPages = data.length;
-  // console.log(numberPages);
+
 
 
   useEffect(() => {
+
     getAllPosts().then((data) => {
       const results = data.filter(post => post.title.toLowerCase().includes(searchFilter.toLowerCase()))
       setData(results);
     });
 
   }, [searchFilter]);
+
+
+  const nextData = (event) => {
+    const start = event.target.href.substr(event.target.href.length - 1) * 10;
+    console.log(start);
+    getAllPosts(start).then((data) => {
+      const results = data.filter(post => post.title.toLowerCase().includes(searchFilter.toLowerCase()))
+      setData(results);
+    });
+  }
 
   const sortPosts = (event) => {
     const target = event.currentTarget.id;
@@ -61,19 +70,35 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout searchFilter={searchFilter} setSearchFilter={setSearchFilter} />}>
+      <Route path="/" element={<Layout searchFilter={searchFilter} setSearchFilter={setSearchFilter} sortPosts={sortPosts}
+        isSortId={isSortId}
+        isSortTitle={isSortTitle}
+        isSortBody={isSortBody}
+        nextData={nextData}
+      />}>
         <Route index element={<Home
-          data={data}
+          data={data} />} >
+        </Route>
+        <Route path="1" element={<NextPage2 data={data}
           sortPosts={sortPosts}
           isSortId={isSortId}
           isSortTitle={isSortTitle}
-          isSortBody={isSortBody} />} >
-
-        </Route>
-        <Route path="2" element={<NextPage2 />} />
-        <Route path="3" element={<NextPage3 />} />
-        <Route path="4" element={<NextPage4 />} />
-        <Route path="5" element={<NextPage5 />} />
+          isSortBody={isSortBody} />} />
+        <Route path="2" element={<NextPage3 data={data}
+          sortPosts={sortPosts}
+          isSortId={isSortId}
+          isSortTitle={isSortTitle}
+          isSortBody={isSortBody} />} />
+        <Route path="3" element={<NextPage4 data={data}
+          sortPosts={sortPosts}
+          isSortId={isSortId}
+          isSortTitle={isSortTitle}
+          isSortBody={isSortBody} />} />
+        <Route path="4" element={<NextPage5 data={data}
+          sortPosts={sortPosts}
+          isSortId={isSortId}
+          isSortTitle={isSortTitle}
+          isSortBody={isSortBody} />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>
